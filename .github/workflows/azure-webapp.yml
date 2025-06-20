@@ -21,6 +21,10 @@ jobs:
       - name: Restore NuGet packages
         run: nuget restore "01.First Step.sln"
 
+      - name: Install CodeDom Provider (required for build)
+        run: nuget install Microsoft.CodeDom.Providers.DotNetCompilerPlatform -Version 2.0.1
+
+
       - name: Build the solution
         run: msbuild "01.First Step.sln" /p:Configuration=Release
 
